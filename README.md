@@ -2,14 +2,6 @@
 
 <img width="706" alt="fotomaton" src="https://github.com/user-attachments/assets/2b3362c0-195a-4719-94aa-8c5a8b0cea4a">
 
-Para crear la aplicación que has mostrado en la imagen usando JavaScript en un único fichero HTML, podemos seguir los siguientes pasos:
-
-Crear una estructura básica de HTML.
-Añadir un contenedor para la vista de la cámara.
-Añadir un botón para capturar la foto.
-Añadir contenedores para mostrar las fotos tomadas.
-Usar JavaScript para acceder a la cámara, capturar la imagen y mostrarla en los contenedores correspondientes.
-
 Explicación breve:
 Se configura la estructura básica de HTML y CSS para estilizar el layout de la aplicación.
 Se accede a la cámara del usuario usando navigator.mediaDevices.getUserMedia.
@@ -22,7 +14,6 @@ Descarga el archivo HTML:
 Abre tu navegador preferido (Chrome, Firefox, Edge, etc.).
 Arrastra y suelta el archivo fotomaton.html en la ventana del navegador o usa la opción de "Abrir archivo" del navegador para seleccionar y abrir el archivo.
 El navegador solicitará permisos para acceder a la cámara. Acepta los permisos para que la aplicación pueda acceder a tu cámara.
-
 
 Interactuar con la Aplicación:
 
