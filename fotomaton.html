@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotomatón a 1€</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #camera-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid black;
+            padding: 20px;
+            width: 400px;
+            height: 450px;
+        }
+        #video {
+            width: 100%;
+            height: auto;
+        }
+        #photos {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .photo-slot {
+            width: 90px;
+            height: 90px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .photo-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #capture-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fotomatón a 1€</h1>
+    <div id="camera-container">
+        <video id="video" autoplay></video>
+        <div id="photos">
+            <div class="photo-slot"></div>
+            <div class="photo-slot"></div>
+            <div class="photo-slot"></div>
+            <div class="photo-slot"></div>
+        </div>
+        <button id="capture-button">Foto</button>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const captureButton = document.getElementById('capture-button');
+        const photoSlots = document.querySelectorAll('.photo-slot');
+
+        // Acceder a la cámara del usuario
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(error => {
+                console.error('Error al acceder a la cámara', error);
+            });
+
+        captureButton.addEventListener('click', () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const dataUrl = canvas.toDataURL('image/png');
+
+            for (let slot of photoSlots) {
+                if (!slot.querySelector('img')) {
+                    const img = document.createElement('img');
+                    img.src = dataUrl;
+                    slot.appendChild(img);
+                    break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
