@@ -1,5 +1,7 @@
 # fotomaton
 
+<img width="706" alt="fotomaton" src="https://github.com/user-attachments/assets/2b3362c0-195a-4719-94aa-8c5a8b0cea4a">
+
 Para crear la aplicación que has mostrado en la imagen usando JavaScript en un único fichero HTML, podemos seguir los siguientes pasos:
 
 Crear una estructura básica de HTML.
@@ -34,5 +36,3 @@ En la mayoría de los navegadores, puedes verificar los permisos en la configura
 Probar Captura de Imagen:
 
 Haz clic en el botón "Foto" varias veces para asegurarte de que las fotos se capturan y se muestran correctamente en los contenedores.
-
-
